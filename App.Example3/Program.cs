@@ -8,14 +8,15 @@ namespace App.Example3
     {
         static void Main(string[] args)
         {
-            IoC.ConfigureHandlersBasic();
-
+            IoC.ConfigureHandlersWithDecorator();
             var mediator = IoC.Resolve<IMediator>();
 
 
-            var request = new AddTwoNumbersRequest(3, 4);
-            var result = mediator.Send(request);
+            var request = new AddTwoNumbersRequest(3, 46);
+            //var request = new MultiplyTwoNumbersRequest(3, 4);
 
+
+            var result = mediator.Send(request);
             Console.WriteLine(result);
         }
     }

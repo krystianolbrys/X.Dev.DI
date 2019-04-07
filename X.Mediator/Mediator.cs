@@ -15,7 +15,7 @@ namespace X.Mediator
         {
             var wrapper =
                 (IWrapper<TResponse>)Activator
-                .CreateInstance(typeof(Wrapper<,>).MakeGenericType(request.GetType(), typeof(TResponse)));
+                    .CreateInstance(typeof(Wrapper<,>).MakeGenericType(request.GetType(), typeof(TResponse)));
 
             return wrapper.Handle(request, _factory);
         }

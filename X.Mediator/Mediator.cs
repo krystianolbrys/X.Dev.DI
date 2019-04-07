@@ -13,9 +13,6 @@ namespace X.Mediator
 
         public TResponse Send<TResponse>(IRequest<TResponse> request)
         {
-            var handlerType = typeof(IHandler<,>).MakeGenericType(request.GetType(), typeof(TResponse));
-            var handler = (IHandler<IRequest<TResponse>, TResponse>)_factory(handlerType);
-
             var wrapper =
                 (IWrapper<TResponse>)Activator
                 .CreateInstance(typeof(Wrapper<,>).MakeGenericType(request.GetType(), typeof(TResponse)));
@@ -29,7 +26,8 @@ namespace X.Mediator
         TResponse Handle(IRequest<TResponse> request, ServiceFactory factory);
     }
 
-    public class Wrapper<TRequest, TResponse> : IWrapper<TResponse> where TRequest : IRequest<TResponse>
+    public class Wrapper<TRequest, TResponse> : IWrapper<TResponse>
+        where TRequest : IRequest<TResponse>
     {
         public TResponse Handle(IRequest<TResponse> request, ServiceFactory factory)
         {

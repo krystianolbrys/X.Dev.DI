@@ -13,12 +13,7 @@ namespace X.Logger
             _filePath = filePath;
         }
 
-        public Task Log(string value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task LogToFile(string value)
+        public async Task Log(string value)
         {
             await File.AppendAllTextAsync(_filePath, $"{DateTime.UtcNow} - {value}\n\n");
         }

@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using X.Logger;
 using X.Mediator;
 
-namespace App.Example3.CQRS.Decorators
+namespace Web.Example.CQRS.Decorators
 {
     public class LoggingDecorator<TRequest, TResponse> : IHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

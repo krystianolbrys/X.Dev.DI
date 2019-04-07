@@ -28,7 +28,7 @@ namespace App.Example2
                 Classes.FromAssembly(Assembly.GetCallingAssembly())
                 .BasedOn<IInterceptor>()
                 .WithService
-                .FromInterface());
+                .FirstInterface());
 
             Container.Register(
                 Component.For<IService>()

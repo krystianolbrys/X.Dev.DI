@@ -1,0 +1,21 @@
+07/04/2019 22:18:21 - AddTwoNumbersRequestHandler -> Request: {"A":1,"B":2} Result: 3
+
+07/04/2019 22:18:31 - AddTwoNumbersRequestHandler -> Request: {"A":1,"B":2} Result: 3
+
+07/04/2019 22:18:34 - AddTwoNumbersRequestHandler -> Request: {"A":1,"B":2} Result: 3
+
+07/04/2019 22:18:35 - AddTwoNumbersRequestHandler -> Request: {"A":1,"B":2} Result: 3
+
+07/04/2019 22:22:29 - AddTwoNumbersRequestHandler -> Request: {"A":1,"B":2} Result: 3
+
+07/04/2019 22:26:48 - IHandler`2Proxy -> Request: {"A":1,"B":2} Result: 3
+
+07/04/2019 22:26:52 - System.ArgumentNullException: Value cannot be null.
+Parameter name: testowy null exception
+   at Web.Example.CQRS.RequestHandlers.GenerateErrorRequestHandler.Handle(GenerateErrorRequest request) in C:\Users\XTR\source\repos\X.Dev.DI\Web.Example\CQRS\RequestHandlers\GenerateErrorRequestHandler.cs:line 11
+   at Castle.Proxies.Invocations.IHandler`2_Handle_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Web.Example.LoggingInterceptor.Intercept(IInvocation invocation) in C:\Users\XTR\source\repos\X.Dev.DI\Web.Example\LoggingInterceptor.cs:line 20
+
+07/04/2019 22:27:12 - IHandler`2Proxy -> Request: {"A":1,"B":2} Result: 3
+

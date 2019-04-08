@@ -2,7 +2,8 @@
 {
     public interface IService
     {
-        int GetResponseNoException();
+        int GetResponseNoExceptionWithTimeMetter();
+        int GetResponseNoExceptionWithoutTimeMetter();
         int GetResponseWithException();
     }
 }

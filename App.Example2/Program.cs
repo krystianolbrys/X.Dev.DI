@@ -10,8 +10,9 @@ namespace App.Example2
 
             var myService = IoC.Resolve<IService>();
 
-            var result1 = myService.GetResponseNoException();
-            var result2 = myService.GetResponseWithException();
+            var result1 = myService.GetResponseNoExceptionWithTimeMetter();
+            var result2 = myService.GetResponseNoExceptionWithoutTimeMetter();
+            var result3 = myService.GetResponseWithException();
         }
     }
 }

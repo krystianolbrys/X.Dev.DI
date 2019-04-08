@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Linq;
+using App.Example2.Attributes;
 using Castle.DynamicProxy;
 using X.Logger;
 
@@ -15,9 +17,15 @@ namespace App.Example2.Interceptors
 
         public void Intercept(IInvocation invocation)
         {
-            var stopwatch = Stopwatch.StartNew();
+            if (invocation.MethodInvocationTarget.CustomAttributes.Any(t => t.AttributeType.Equals(typeof(TimeMetterAttribute))))
+            {
+                var stopwatch = Stopwatch.StartNew();
+                invocation.Proceed();
+                _logger.Log($"{invocation.Method.Name} -> {stopwatch.ElapsedTicks} ticks");
+                return;
+            }
+
             invocation.Proceed();
-            _logger.Log($"{invocation.Method.Name} -> {stopwatch.ElapsedTicks} ticks");
         }
     }
 }
